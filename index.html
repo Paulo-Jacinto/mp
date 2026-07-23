@@ -489,66 +489,72 @@
         }
 
         /* ===== RESPONSIVE ===== */
-       @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-            .hero {
-                grid-template-columns: 1fr;
-                padding: 5rem 1.2rem 3rem;
-                gap: 2rem;
-                text-align: center;
-                min-height: auto;
-            }
-           .hero::before {
-               display: none;
-           }
-            .hero-content {
-                min-width: 0;
-            }
-           .hero-content, .hero-content*{
-               max-width: 100%;
-               overflow-wrao: break-word;
-               word-wrap: break-word;
-               word-break: break-word;
-           }
-           .hero h1 {
-               font-size: 1.6rem;
-               letter-spacing: normal;
-               width: 100%;
-               word-break: break-word;
-           }
-           .cta-buttons .btn {
-               flex: 1 1 100%;
-               width: 100%
-               text-align: center;
-           }
-            .cta-buttons {
-                flex-wrap: wrap;
-                justify-content: center;
-                width: 100%;
-            }
-           .cta-buttons .btn{
-               flex: 1 1 100%;
-           }
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .hero-image {
-                height: 300px;
-            }
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-           .hero, .hero-content, .hero p, .hero h1, .cta-buttons, .cta-buttons .btn {
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-}
-.hero p {
-    white-space: normal !important;
+      @media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 5rem 1.2rem 3rem;
+        gap: 2rem;
+        text-align: center;
+        min-height: auto;
+    }
+    .hero::before {
+        display: none;
+    }
+    .hero-content {
+        min-width: 0;
+    }
+    .hero-content, .hero-content * {
+        max-width: 100%;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-word;
+    }
+    .hero h1 {
+        font-size: 1.6rem;
+        letter-spacing: normal;
+        width: 100%;
+        word-break: break-word;
+    }
+    .cta-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+    .cta-buttons .btn {
+        flex: 1 1 100%;
+        width: 100%;
+        text-align: center;
+    }
+    .hero-image {
+        width: 100%;
+        height: 300px;
+    }
+    .hero-image-box {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .hero-image-box img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero, .hero-content, .hero p, .hero h1, .cta-buttons, .cta-buttons .btn {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .hero p {
+        white-space: normal !important;
+    }
 }
         }
     </style>
