@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MProjectos | Engenharia Civil, 3D, Realidade Virtual e Domótica</title>
+<meta name="description" content="MProjectos: engenharia civil, modelação 3D, realidade virtual e automação residencial na Beira, Moçambique.">
+<style>
+:root{--bg:#0b1220;--card:#131c2e;--txt:#e8edf6;--mut:#93a0b8;--acc:#f5a524;--acc2:#2ea3ff;--r:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6}
+img,video{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1100px,92%);margin:auto}
+section{padding:80px 0}
+h2{font-size:clamp(1.6rem,4vw,2.2rem);margin-bottom:8px}
+.sub{color:var(--mut);margin-bottom:36px}
+.btn{display:inline-block;background:var(--acc);color:#111;font-weight:700;padding:12px 24px;border-radius:999px;border:0;cursor:pointer;font-size:1rem}
+.btn.ghost{background:transparent;color:var(--txt);border:2px solid var(--txt)}
+/* nav */
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(11,18,32,.85);backdrop-filter:blur(10px);border-bottom:1px solid #1f2b44}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:1.3rem}.logo span{color:var(--acc)}
+nav ul{display:flex;gap:24px;list-style:none}
+nav ul a{color:var(--mut);font-weight:600}nav ul a:hover{color:var(--acc)}
+#menu{display:none;background:none;border:0;color:var(--txt);font-size:1.8rem;cursor:pointer}
+@media(max-width:760px){
+ #menu{display:block}
+ nav ul{position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--bg);padding:20px 4%;display:none;border-bottom:1px solid #1f2b44}
+ nav ul.open{display:flex}
+}
+/* hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:linear-gradient(135deg,#0b1220,#16294d)}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
+.hero .wrap{position:relative}
+.hero h1{font-size:clamp(2.2rem,6vw,4rem);line-height:1.1;margin-bottom:16px}
+.hero h1 em{color:var(--acc);font-style:normal}
+.hero p{color:var(--mut);max-width:560px;margin-bottom:28px;font-size:1.1rem}
+.hero .btns{display:flex;gap:12px;flex-wrap:wrap}
+/* services */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.card{background:var(--card);padding:28px;border-radius:var(--r);border:1px solid #1f2b44;transition:.25s}
+.card:hover{transform:translateY(-6px);border-color:var(--acc)}
+.card .ic{font-size:2rem;margin-bottom:12px}
+.card h3{margin-bottom:8px}.card p{color:var(--mut);font-size:.95rem}
+/* portfolio */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.filters button{background:var(--card);color:var(--txt);border:1px solid #1f2b44;padding:8px 18px;border-radius:999px;cursor:pointer;font-weight:600}
+.filters button.on{background:var(--acc);color:#111;border-color:var(--acc)}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.item{position:relative;border-radius:var(--r);overflow:hidden;cursor:pointer;aspect-ratio:4/3;background:linear-gradient(135deg,#1a2a4a,#0f1a30)}
+.item img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.item:hover img{transform:scale(1.08)}
+.item .cap{position:absolute;left:0;right:0;bottom:0;padding:14px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-weight:600}
+.item .cap small{display:block;color:var(--acc);font-weight:500}
+.item.hide{display:none}
+/* video */
+.vids{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.vids video{width:100%;border-radius:var(--r);background:#000;aspect-ratio:16/9}
+/* about + contact */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
+.stats{display:flex;gap:30px;margin-top:20px;flex-wrap:wrap}
+.stats b{display:block;font-size:2rem;color:var(--acc)}
+form{display:grid;gap:12px}
+input,textarea,select{width:100%;padding:13px;border-radius:10px;border:1px solid #1f2b44;background:var(--card);color:var(--txt);font:inherit}
+textarea{min-height:110px;resize:vertical}
+footer{padding:28px 0;text-align:center;color:var(--mut);border-top:1px solid #1f2b44}
+.card .ic svg{width:36px;height:36px;stroke:var(--acc)}
+.card .ic{margin-bottom:14px}
+svg{fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#menu svg{width:28px;height:28px;stroke:var(--txt)}
+.wa svg{width:30px;height:30px;stroke:#fff}
+.wa{position:fixed;right:18px;bottom:18px;z-index:60;background:#25d366;color:#fff;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:1.8rem;box-shadow:0 6px 20px rgba(0,0,0,.4)}
+/* lightbox */
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;place-items:center;z-index:100;padding:20px}
+#lb.on{display:grid}
+#lb img{max-height:88vh;border-radius:12px}
+#lb button{position:absolute;top:16px;right:22px;background:none;border:0;color:#fff;font-size:2.4rem;cursor:pointer}
+.reveal{opacity:0;transform:translateY(30px);transition:.7s}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<header>
+ <nav class="wrap">
+  <a href="#inicio" class="logo">M<span>Projectos</span></a>
+  <button id="menu" aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  <ul id="links">
+   <li><a href="#servicos">Serviços</a></li>
+   <li><a href="#portfolio">Portfólio</a></li>
+   <li><a href="#videos">Vídeos</a></li>
+   <li><a href="#sobre">Sobre</a></li>
+   <li><a href="#contacto">Contacto</a></li>
+  </ul>
+ </nav>
+</header>
+
+<section class="hero" id="inicio">
+ <!-- Coloca o teu vídeo em assets/video/hero.mp4 -->
+ <video autoplay muted loop playsinline poster="assets/img/casa1.jpg"><source src="assets/video/hero.mp4" type="video/mp4"></video>
+ <div class="wrap">
+  <h1>Projectamos o seu <em>futuro</em>,<br>da planta à realidade virtual.</h1>
+  <p>Engenharia civil, modelação 3D, realidade virtual e automação residencial na Beira, Moçambique.</p>
+  <div class="btns">
+   <a href="#portfolio" class="btn">Ver Projectos</a>
+   <a href="#contacto" class="btn ghost">Pedir Orçamento</a>
+  </div>
+ </div>
+</section>
+
+<section id="servicos">
+ <div class="wrap">
+  <h2 class="reveal">Os nossos serviços</h2>
+  <p class="sub reveal">Tudo o que precisa para ver a sua casa antes de a construir.</p>
+  <div class="grid">
+   <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 12h.01M9 15h.01M9 18h.01"/></svg></div><h3>Engenharia Civil</h3><p>Projectos de arquitectura, estruturas e acompanhamento de obra.</p></div>
+   <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/></svg></div><h3>Modelação 3D</h3><p>Maquetes e renders realistas de casas, interiores e edifícios.</p></div>
+   <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-4l-2-3h-4l-2 3H4a2 2 0 0 1-2-2z"/><circle cx="7.5" cy="11" r="1"/><circle cx="16.5" cy="11" r="1"/></svg></div><h3>Realidade Virtual</h3><p>Visitas virtuais imersivas ao seu projecto antes da construção.</p></div>
+   <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2v.3h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z"/></svg></div><h3>Domótica</h3><p>Casa inteligente: luzes, segurança, portões e energia automatizados.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="portfolio" style="background:#0e1729">
+ <div class="wrap">
+  <h2 class="reveal">Portfólio</h2>
+  <p class="sub reveal">Alguns dos nossos trabalhos. Clique numa imagem para ampliar.</p>
+  <div class="filters" id="filters">
+   <button class="on" data-f="all">Todos</button>
+   <button data-f="civil">Civil</button>
+   <button data-f="3d">3D</button>
+   <button data-f="vr">Realidade Virtual</button>
+   <button data-f="domotica">Domótica</button>
+  </div>
+  <div class="gal" id="gal"></div>
+ </div>
+</section>
+
+<section id="videos">
+ <div class="wrap">
+  <h2 class="reveal">Vídeos</h2>
+  <p class="sub reveal">Passeios virtuais e animações dos nossos projectos.</p>
+  <div class="vids">
+   <video controls preload="metadata" poster="assets/img/casa2.jpg"><source src="assets/video/projecto1.mp4" type="video/mp4"></video>
+   <video controls preload="metadata" poster="assets/img/casa3.jpg"><source src="assets/video/projecto2.mp4" type="video/mp4"></video>
+  </div>
+ </div>
+</section>
+
+<section id="sobre" style="background:#0e1729">
+ <div class="wrap two">
+  <div class="reveal">
+   <h2>Sobre a MProjectos</h2>
+   <p class="sub">Fundada por Paulo Jacinto, na Beira.</p>
+   <p>Unimos engenharia e tecnologia para entregar projectos modernos, com visualização 3D e realidade virtual, para que o cliente veja e decida com confiança.</p>
+   <div class="stats">
+    <div><b data-n="30">0</b>Projectos</div>
+    <div><b data-n="20">0</b>Clientes</div>
+    <div><b data-n="4">0</b>Áreas</div>
+   </div>
+  </div>
+  <div class="reveal" id="contacto">
+   <h2>Contacto</h2>
+   <p class="sub">Envie a sua mensagem directamente por WhatsApp.</p>
+   <form id="f">
+    <input id="nome" placeholder="O seu nome" required>
+    <select id="serv">
+     <option>Engenharia Civil</option><option>Modelação 3D</option>
+     <option>Realidade Virtual</option><option>Domótica</option>
+    </select>
+    <textarea id="msg" placeholder="Descreva o seu projecto" required></textarea>
+    <button class="btn" type="submit">Enviar por WhatsApp</button>
+   </form>
+  </div>
+ </div>
+</section>
+
+<footer>© <span id="y"></span> MProjectos · Beira, Moçambique</footer>
+
+<a class="wa" id="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.8 7.1L3 21l1.9-5.2A8.4 8.4 0 1 1 21 11.5z"/><path d="M9 9.5c.3 2 2.5 4.2 5 5l1.2-1.3-1.8-1-.8.7c-.8-.4-1.5-1.1-1.9-1.9l.7-.8-1-1.8z"/></svg></a>
+
+<div id="lb"><button aria-label="Fechar">×</button><img alt=""></div>
+
+<script>
+/* ===== CONFIGURAÇÃO: muda aqui ===== */
+const WHATSAPP = "258840000000"; // número com código do país, sem +
+const PROJECTOS = [
+ {t:"Vivenda T4 Moderna",  c:"civil",    img:"assets/img/casa1.jpg"},
+ {t:"Render Exterior",     c:"3d",       img:"assets/img/casa2.jpg"},
+ {t:"Interior Sala",       c:"3d",       img:"assets/img/casa3.jpg"},
+ {t:"Passeio Virtual VR",  c:"vr",       img:"assets/img/casa4.jpg"},
+ {t:"Casa Inteligente",    c:"domotica", img:"assets/img/casa5.jpg"},
+ {t:"Edifício Comercial",  c:"civil",    img:"assets/img/casa6.jpg"}
+];
+const NOMES = {civil:"Engenharia Civil","3d":"Modelação 3D",vr:"Realidade Virtual",domotica:"Domótica"};
+
+/* portfólio */
+const gal = document.getElementById("gal");
+PROJECTOS.forEach(p=>{
+ const d = document.createElement("div");
+ d.className = "item reveal"; d.dataset.c = p.c;
+ d.innerHTML = `<img src="${p.img}" alt="${p.t}" loading="lazy" onerror="this.style.display='none'"><div class="cap">${p.t}<small>${NOMES[p.c]}</small></div>`;
+ d.onclick = ()=>{ lb.querySelector("img").src = p.img; lb.classList.add("on"); };
+ gal.appendChild(d);
+});
+document.getElementById("filters").onclick = e=>{
+ const b = e.target.closest("button"); if(!b) return;
+ document.querySelectorAll("#filters button").forEach(x=>x.classList.remove("on"));
+ b.classList.add("on");
+ document.querySelectorAll(".item").forEach(i=>i.classList.toggle("hide", b.dataset.f!=="all" && i.dataset.c!==b.dataset.f));
+};
+
+/* lightbox */
+const lb = document.getElementById("lb");
+lb.onclick = ()=>lb.classList.remove("on");
+
+/* menu mobile */
+const links = document.getElementById("links");
+document.getElementById("menu").onclick = ()=>links.classList.toggle("open");
+links.onclick = ()=>links.classList.remove("open");
+
+/* whatsapp */
+document.getElementById("wa").href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Olá MProjectos, gostaria de saber mais sobre os vossos serviços.")}`;
+document.getElementById("f").onsubmit = e=>{
+ e.preventDefault();
+ const t = `Olá MProjectos! Sou ${nome.value}. Serviço: ${serv.value}. ${msg.value}`;
+ window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(t)}`,"_blank");
+};
+
+/* animações ao rolar */
+const io = new IntersectionObserver(es=>es.forEach(x=>{
+ if(!x.isIntersecting) return;
+ x.target.classList.add("in");
+ const n = x.target.querySelectorAll("[data-n]");
+ n.forEach(el=>{let v=0,m=+el.dataset.n;const s=setInterval(()=>{v++;el.textContent=v+"+";if(v>=m)clearInterval(s)},40)});
+ io.unobserve(x.target);
+}),{threshold:.15});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
